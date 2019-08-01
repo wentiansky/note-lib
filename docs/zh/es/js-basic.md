@@ -1,7 +1,9 @@
-## JS基础内容
-### 一、面向对象
-####1. 判断属性是否存在对象的方法
-* in操作符
+# JS基础内容
+
+## 判断属性是否存在对象的方法
+
+* in操作符；
+
 ```javascript
   function Person() {
 
@@ -12,7 +14,9 @@
   person.name = 'ly'
   alert('name' in person) // true
 ```
-* obj.hasOwnProperty('prop')
+
+* obj.hasOwnProperty('prop')；
+
 ```javascript
   function Person() {
 
@@ -23,14 +27,17 @@
   person.name = 'ly'
   alert(person.hasOwnProperty('name')) // true
 ```
+
 * 判断属性是原型中的属性
+
 ```javascript
   function hasPrototypeProperty(object, prop) {
     return !object.hasOwnProperty(prop) && (prop in object);
   }
 ```
 
-####2. 获取对象属性
+## 获取对象属性
+
 * 获取所有可枚举的属性
 ```javascript
   Object.keys(obj);
@@ -40,7 +47,8 @@
   Object.getOwnPropertyNames(obj);
 ```
 
-####3. 更简单的原型写法，需要重新指定`constructor`
+## 更简单的原型写法，需要重新指定`constructor`
+
 ```javascript
 function Person() {
 

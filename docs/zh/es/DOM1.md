@@ -1,4 +1,6 @@
-### Node类型
+# DOM1
+
+## Node类型
 * Node.ELEMENT_NODE(1);
 * Node.ATTRIBUTE_NODE(2);
 * Node.TEXT_NODE(3);
@@ -41,7 +43,7 @@ function convertToArray(nodes) {
 }
 ```
 
-### 节点关系
+## 节点关系
 * parentNode
 * childNodes
 * previousSibling
@@ -49,7 +51,7 @@ function convertToArray(nodes) {
 * firstChild
 * lastChild
 
-### 操作节点
+## 操作节点
 * appendChild()：将节点添加到父节点的最后一个节点
 * insertBefore(newNode, childNode)：将节点插入在childNode之前
 * replaceChild(newNode, oldNode)：将新节点替换旧节点
@@ -57,7 +59,7 @@ function convertToArray(nodes) {
 * cloneNode(true)：true可选，为true执行深拷贝，为false执行浅拷贝
 * normalize()：删除空文本节点，合并文本节点
 
-### Document类型
+## Document类型
 document对象是HTMLDocument（继承自Document类型）的一个实例，表示整个HTML页面，document是window对象的一个属性。
 * document.documentElement： 指向`<html>`元素；
 * document.body：指向`<body>`元素；
@@ -72,7 +74,7 @@ document对象是HTMLDocument（继承自Document类型）的一个实例，表�
 document.domain = 'qq.com'；// 可以与qq.com域名的页面相互通信
 ```
 
-### 查找元素
+## 查找元素
 * getElementById('id')：匹配id，返回第一个匹配的元素；
 * getElementsByTagName('div')；匹配标签名，返回HTMLCollection集合；
 * getElementsByName('name')；
@@ -84,12 +86,12 @@ let images = document.getElementsByTagName('img');
 let myImage = images.namedItem('myImage') = images['myImage'];
 ```
 
-### 设置/获取特性（常用于自定义特性：如data-id等等）
+## 设置/获取特性（常用于自定义特性：如data-id等等）
 * getAttribute()：可以取得html元素特性和自定义属性；
 * setAttribute()：设置html元素特性和自定义属性；
 * removeAttribute()：移除html元素特性和自定义属性；
 
-### attributes
+## attributes
 attributes属性中包含一系列节点，每个节点的nodeName就是特性的名称，而节点的nodeValue就是特性的值。
 * getNamedItem(name)：返回nodeName属性等于name的节点；
 * setNamedItem(node)：向列表中添加节点，以节点的nodeName属性为索引；
@@ -123,13 +125,12 @@ function outputAttibutes(element) {
 }
 ```
 
-## DOM扩展
-### Selectors API
+## Selectors API
 兼容性：IE8+
 * querySelector()方法
 * querySelectorAll()方法
 
-### 元素遍历
+## 元素遍历
 兼容性：IE9+
 * childElementCount：返回子元素的个数；
 * firstElementChild：指向第一个子元素，firstChild的元素版；
@@ -137,7 +138,7 @@ function outputAttibutes(element) {
 * previousElementSibling：指向前一个同辈子元素；
 * nextElementSibling：指向后一个同辈子元素；
 
-### className相关操作
+## className相关操作
 * getElementsByClassName()方法，兼容性：IE9+；
 * classList属性，兼容性：IE10+；
   * add(value)：若value已存在，则不添加；
@@ -145,26 +146,26 @@ function outputAttibutes(element) {
   * contain(value)：value是否存在；
   * toggle(value)：value存在，则删除；不存在，则添加；
 
-### 焦点管理
+## 焦点管理
 * document.activeElement：引用DOM中当前获得了焦点的元素；
 * document.hasFocus()方法：确定文档是否获得了焦点；
 * focus()方法：元素触焦；
 
-### HTMLDocument变化
+## HTMLDocument变化
 * document.readyState："loading:（正在加载文档），"complete"（已经加载完文档）；
 * document.compatMode："CSS1Compat"（标准模式），"BackCompat"（混杂模式）；
 * document.head：跟document.body类似；
 
-### 字符集属性
+## 字符集属性
 * document.charset // "UTF-16"
 * document.charset = "UTF-8"
 
-### 自定义数据属性
+## 自定义数据属性
 如data-appid="12345"
 获取属性：element.dataset.appid
 设置属性：element.dataset.appid = "246810"
 
-### 插入标记
+## 插入标记
 * innerHTML：插入dom树；
 * outerHTML：替换自身并插入dom树；
 * insertAdjacentHTML：在指定位置插入dom树；
@@ -172,7 +173,7 @@ function outputAttibutes(element) {
 **性能问题**
 > 在使用innerHTML，outerHTML和insertAdjacentHTML方法时，最好先手动删除被替换元素的所有事件处理程序和JavaScript对象属性，否则内存占用会明显增加。
 
-### scrollIntoView()方法
+## scrollIntoView()方法
 * scrollIntoView(true)：调用元素尽可能与视口顶部平齐；
 * scrollIntoView(false)：调用元素尽可能全部出现在视口中；
 

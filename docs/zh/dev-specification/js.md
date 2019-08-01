@@ -743,7 +743,7 @@ var hasMoreCommands = false;
 | RegExp       | {RegExp}                           | --                             |
 | Array        | {Array}                            | --                             |
 | Date         | {Date}                             | --                             |
-| 单一类型集合       | {Array.<string>}                   | string 类型的数组                   |
+| 单一类型集合       | `{Array.<string>}`                   | string 类型的数组                   |
 | 多类型          | {(number｜boolean)}                 | 可能是 number 类型, 也可能是 boolean 类型 |
 | 允许为null      | {?number}                          | 可能是 number, 也可能是 null          |
 | 不允许为null     | {!Object}                          | Object 类型, 但不是 null            |

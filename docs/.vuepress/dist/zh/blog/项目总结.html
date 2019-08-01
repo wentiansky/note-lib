@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>移动端常见适配方案 | note-lib</title>
+    <meta name="description" content="一个学习仓库">
+    
+    
+    <link rel="preload" href="/node-lib/assets/css/0.styles.4fbc840d.css" as="style"><link rel="preload" href="/node-lib/assets/js/app.a1842d47.js" as="script"><link rel="preload" href="/node-lib/assets/js/2.79fbbef4.js" as="script"><link rel="preload" href="/node-lib/assets/js/8.21e5613c.js" as="script"><link rel="prefetch" href="/node-lib/assets/js/10.1c2d248c.js"><link rel="prefetch" href="/node-lib/assets/js/11.f2878181.js"><link rel="prefetch" href="/node-lib/assets/js/12.a716b23b.js"><link rel="prefetch" href="/node-lib/assets/js/13.6cc52472.js"><link rel="prefetch" href="/node-lib/assets/js/14.51b8b8ec.js"><link rel="prefetch" href="/node-lib/assets/js/15.d8ec37bc.js"><link rel="prefetch" href="/node-lib/assets/js/16.789f6b7e.js"><link rel="prefetch" href="/node-lib/assets/js/17.d3facf43.js"><link rel="prefetch" href="/node-lib/assets/js/18.3b2a650f.js"><link rel="prefetch" href="/node-lib/assets/js/19.5434c288.js"><link rel="prefetch" href="/node-lib/assets/js/20.834fbdab.js"><link rel="prefetch" href="/node-lib/assets/js/3.b441c883.js"><link rel="prefetch" href="/node-lib/assets/js/4.402d097d.js"><link rel="prefetch" href="/node-lib/assets/js/5.16f9bb97.js"><link rel="prefetch" href="/node-lib/assets/js/6.f6f54c10.js"><link rel="prefetch" href="/node-lib/assets/js/7.10a3e118.js"><link rel="prefetch" href="/node-lib/assets/js/9.d10ca452.js">
+    <link rel="stylesheet" href="/node-lib/assets/css/0.styles.4fbc840d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/node-lib/zh/" class="home-link router-link-active"><!----> <span class="site-name">note-lib</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/node-lib/zh/es/" class="nav-link">ES</a></div><div class="nav-item"><a href="/node-lib/zh/dev-specification/" class="nav-link">规范</a></div><div class="nav-item"><a href="/node-lib/zh/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node-lib/" class="nav-link">English</a></li><li class="dropdown-item"><!----> <a href="/node-lib/zh/blog/项目总结.html" class="nav-link">简体中文</a></li></ul></div></div> <a href="https://github.com/wentiansky/note-lib" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/node-lib/zh/es/" class="nav-link">ES</a></div><div class="nav-item"><a href="/node-lib/zh/dev-specification/" class="nav-link">规范</a></div><div class="nav-item"><a href="/node-lib/zh/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">选择语言</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/node-lib/" class="nav-link">English</a></li><li class="dropdown-item"><!----> <a href="/node-lib/zh/blog/项目总结.html" class="nav-link">简体中文</a></li></ul></div></div> <a href="https://github.com/wentiansky/note-lib" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="移动端常见适配方案"><a href="#移动端常见适配方案" aria-hidden="true" class="header-anchor">#</a> 移动端常见适配方案</h2> <h3 id="_1-弹性盒布局-display-flex-如拉勾网"><a href="#_1-弹性盒布局-display-flex-如拉勾网" aria-hidden="true" class="header-anchor">#</a> 1. 弹性盒布局(display: flex), 如拉勾网</h3> <blockquote><ul><li>特点: 关键元素高度和位置不变, 容器元素做伸缩变换。</li> <li>用法: (1). 文字使用流失布局(em单位); (2). 图片等比缩放</li></ul></blockquote> <h3 id="_2-使用rem单位-网易做法"><a href="#_2-使用rem单位-网易做法" aria-hidden="true" class="header-anchor">#</a> 2. 使用rem单位(网易做法)</h3> <blockquote><ul><li>(1). 设1rem = 100px, 设计稿750px, body宽度为7.5rem, 在不同的屏幕宽度下: font-size = width / 7.5rem;</li> <li>(2). 设置meta标签, <meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1">;</li> <li>(3). 当设备分辨率大于设计稿750px, 设置body宽度始终为7.5rem;</li></ul></blockquote> <h3 id="_3-使用rem单位-淘宝做法"><a href="#_3-使用rem单位-淘宝做法" aria-hidden="true" class="header-anchor">#</a> 3. 使用rem单位(淘宝做法)</h3> <blockquote><ul><li>(1). 设置meta标签, <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+device-width = 设备物理分辨率 / (devicePixelRatio * scale), 当scale = 1时, 即device-width = 设备物理分辨率 / dpr;</li> <li>(2). var scale = 1 / devicePixelRatio, document.querySelector('meta[name=&quot;viewport&quot;]').setAttribute('content','initial-scale=' + scale + ', maximum-scale=' + scale + ', minimum-scale=' + scale + ', user-scalable=no');</li> <li>(3). html元素的font-size的计算公式，font-size = deviceWidth / 10, 设计稿750px, 则font-size为75px, 元素rem尺寸为: 150px / 75px = 2rem;</li></ul></blockquote> <h3 id="_4-bootstrap栅格布局"><a href="#_4-bootstrap栅格布局" aria-hidden="true" class="header-anchor">#</a> 4. bootstrap栅格布局</h3> <blockquote><ul><li></li></ul></blockquote> <h2 id="vue项目总结"><a href="#vue项目总结" aria-hidden="true" class="header-anchor">#</a> vue项目总结</h2> <blockquote><ol><li>问题: vue中请求返回的数组(嵌套对象), 改变对象value, 可以触发视图的更新;
+若将请求返回的数组与本地数组拼接, 成为了普通数组, 改变对象value, 不能触发视图的更新;
+解决方法: vue是通过检测get, set才得知数据是否更新的，而对于普通数组来说，是没有get，set方法的，所以需要我们自己手动触发，需要发送消息通知vue
+this.list[index].flag = true;
+Vue.set(this.list, index, this.list[index]);</li></ol></blockquote> <blockquote><ol start="2"><li>问题: 列表在ios上滑动卡顿
+解决方法: ul {
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}</li></ol></blockquote> <h2 id="日常问题"><a href="#日常问题" aria-hidden="true" class="header-anchor">#</a> 日常问题</h2> <blockquote><ol><li>关于在谷歌浏览器中input[type=&quot;password&quot;]框设置autocomplete=off失效问题
+解决方法: 同事去掉input的id和name属性, 如果要加name, 在onchange事件中加</li></ol></blockquote> <blockquote><ol start="2"><li>npm安装开发环境的包: npm install --save-dev 或者 npm i -D;
+npm安装生产环境的包: npm install --save -dev;</li></ol></blockquote> <blockquote><ol start="3"><li>移动端web app UI框架
+|   UI框架  |     星星    |    语言    |   前端框架    &gt; |
+|    :---:  |    :---:    |    :---:   |   :---:  |
+|   Ionic   |    34K      | typescript |  angular |
+|   ant-design | 27.6k |      |      |<br>
+|  weui  | 18.5k |      |      |<br>
+|  vux  | 12.2k |      |   vue    |<br>
+|  Framework7  | 12.2k |      |      |<br>
+|  amazeui   | 11.7k |      |      |<br>
+|  mui   | 8.9k |      |      |
+|  onsenui   | 6.3k |      |      |
+|  sui   | 5.5k |      |      |</li></ol></blockquote> <blockquote><ol start="4"><li>前端最新资讯网址
+|  网站名  |  链接 |
+|:---😐 :---: | :---😐
+| EchoJS |  <a href="http://www.echojs.com/" target="_blank" rel="noopener noreferrer">EchoJS官网<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>  |
+| DailyJS | <a href="http://medium.com/dailyjs/" target="_blank" rel="noopener noreferrer">DailyJS官网<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> |
+| Front-End Front | <a href="http://frontendfront.com/" target="_blank" rel="noopener noreferrer">Front-End Front官网<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> |</li></ol></blockquote> <blockquote><ol start="5"><li>前端技术刊物
+|  网站名  |  链接 |
+|:---😐 :---: | :---😐
+| ES.next News | <a href="http://esnextnews.com/" target="_blank" rel="noopener noreferrer">ES.next News官网<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> |
+| Web Design Weekly | <a href="http://web-design-weekly.com/" target="_blank" rel="noopener noreferrer">Web Design Weekly官网<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> |</li></ol></blockquote> <blockquote><ol start="6"><li>常用清除浮动的方法</li></ol></blockquote> <div class="language-css extra-class"><pre class="language-css"><code><span class="token selector">.clearfix:after</span> <span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> table<span class="token punctuation">;</span>
+    <span class="token property">clear</span><span class="token punctuation">:</span> both<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>7.设置常见的reset样式</p></blockquote> <div class="language-css extra-class"><pre class="language-css"><code><span class="token comment">/* IE浏览器对输入控件有自己的font-family，需要统一 */</span>
+<span class="token selector">input,
+textarea,
+button</span><span class="token punctuation">{</span>
+	<span class="token property">font-family</span><span class="token punctuation">:</span> inherit<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* Chrome浏览器会在输入控制聚集的时候添加一个蓝色的outline */</span>
+<span class="token selector">input:focus,
+textarea:focus,
+select:focus</span> <span class="token punctuation">{</span>
+	<span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 去掉textarea的可拉大小功能 */</span>
+<span class="token selector">textarea</span> <span class="token punctuation">{</span>
+	<span class="token property">resize</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* IOS Safari在横屏的时候会放大字体，第二个属性让滑动更流畅 */</span>
+<span class="token selector">html</span> <span class="token punctuation">{</span>
+	<span class="token property">-webkit-text-size-adjust</span><span class="token punctuation">:</span> 100%<span class="token punctuation">;</span>
+	<span class="token property">-webkit-overflow-scrolling</span> <span class="token punctuation">:</span> touch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 统一标签的margin值和p标签的line-height */</span>
+<span class="token selector">body, p, h1, h2, ul, ol, figure, li</span> <span class="token punctuation">{</span>
+	<span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+	<span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">h1, h2, p</span> <span class="token punctuation">{</span>
+	<span class="token property">line-height</span><span class="token punctuation">:</span> 150%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 去掉select的默认样式 */</span>
+<span class="token selector">select</span><span class="token punctuation">{</span>
+	<span class="token property">-webkit-appearance</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 如果有输入内容IE会给输入框右边加一个大大的X */</span>
+<span class="token selector">input::-ms-clear</span> <span class="token punctuation">{</span>
+	<span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+	<span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+	<span class="token property">height</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">/* 去掉number输入框右边点击上下的小三角 */</span>
+<span class="token selector">input::-webkit-inner-spin-button</span> <span class="token punctuation">{</span>
+	<span class="token property">-webkit-appearance</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">input::-webki-outer-spin-button</span> <span class="token punctuation">{</span>
+    <span class="token property">-webki-appearance</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><blockquote><p>8.图片压缩
+使用tinypng.com</p></blockquote> <h2 id="前端常见反爬虫策略"><a href="#前端常见反爬虫策略" aria-hidden="true" class="header-anchor">#</a> 前端常见反爬虫策略</h2> <blockquote><ol><li>定义font-face字符集
+例子：猫眼电影
+使用font-face定义字符集, 并通过unicode去映射展示。
+每次刷新，字符集的url都会发生变化。</li> <li>background拼凑式
+例子：美团
+数字为图片，根据background-position进行偏移，显示不同的字符。</li> <li>字符穿插式
+例子：微信公众号文章</li> <li>伪元素隐藏式
+例子：汽车之家
+把关键字做到伪元素的content里面，</li></ol> <div class="language-css extra-class"><pre class="language-css"><code></code></pre></div></blockquote> <pre><code>div::after {
+    content: &quot;哈撒给&quot;;
+}
+</code></pre> <blockquote><div class="language- extra-class"><pre class="language-text"><code>5. 元素定位覆盖式
+</code></pre></div></blockquote> <p>例子：去哪儿
+4位数字，先用4个标签展示，其中有的数字是错的，再用几个标签（带正确的数字）去覆盖错误的数字。</p> <blockquote><ol start="6"><li>增加一些无用的dom数字节点</li></ol></blockquote> <h2 id="页面元素动起来的动画库"><a href="#页面元素动起来的动画库" aria-hidden="true" class="header-anchor">#</a> 页面元素动起来的动画库</h2> <blockquote><ol><li>scrollreveal.js</li> <li>animate.css + wow.js</li></ol></blockquote></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/wentiansky/note-lib/edit/master/docs/zh/blog/项目总结.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/node-lib/assets/js/app.a1842d47.js" defer></script><script src="/node-lib/assets/js/2.79fbbef4.js" defer></script><script src="/node-lib/assets/js/8.21e5613c.js" defer></script>
+  </body>
+</html>

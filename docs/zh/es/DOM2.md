@@ -1,18 +1,18 @@
-### DOM2样式
+# DOM2样式
 
-**1. style定义的属性和方法**
+## style定义的属性和方法
 
 * cssText：访问到style特性中的代码；
 * getPropertyValue(propertyName)：返回给定属性的字符串值；
 * removeProperty(propertyName)：从样式中删除给定的属性；
 * setProperty(propertyName, value, priority)：将给定属性设置值，并加上优先级（important或者空字符串）；
 
-**2. 计算的样式（只读）**
+## 计算的样式（只读）
 
 * 其他浏览器：getComputedStyle(element, propertyName)；
 * IE浏览器：element.currentStyle[propertyName];
 
-**3. 元素大小**
+## 元素大小
 
 * offsetHeight：元素在垂直方向上占用的空间大小；
 * offsetWidth：元素在水平方向上占用的空间大小；
@@ -41,7 +41,7 @@ function getElementTop(element) {
 }
 ```
 
-**4. 客户区大小**
+## 客户区大小
 
 * clientWidth：元素内容区宽度加上左右内边距宽度；
 * clientHeight：元素内容区高度加上上下内边距宽度；
@@ -64,7 +64,7 @@ function getViewport() {
 }
 ```
 
-**5. 滚动大小**
+## 滚动大小
 
 * scrollHeight：没有滚动条下，元素内容的总高度；
 * scrollWidth：没有滚动条下，元素内容的总宽度；
@@ -80,7 +80,7 @@ var docWidth = Math.max(document.documentElement.scrollWidth, document.documentE
 // 对于混杂模式的IE，要用document.body代替document.documentElement
 ```
 
-**6. 确定元素大小**
+## 确定元素大小
 * getBoundingClientRect()方法；
 
 返回4个属性：left、top、right和bottom。描述了元素相对于视口的位置。

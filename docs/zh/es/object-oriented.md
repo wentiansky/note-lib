@@ -1,6 +1,7 @@
-## 面向对象
+# 面向对象
 
-### Object.defineProperty
+## Object.defineProperty
+
 ```javascript
 /**
  * 数据属性
@@ -42,7 +43,8 @@ book.year = 2019;
 console.log(book);
 ```
 
-### Object.defineProperties
+## Object.defineProperties
+
 ```javascript
 /**
  * ES5定义多个属性
@@ -74,7 +76,8 @@ book.year = 2019
 console.log(book);
 ```
 
-### 组合式继承
+## 组合式继承
+
 ```javascript
 /**
  * 组合式继承
@@ -110,7 +113,8 @@ console.log(parent);
 console.log(child);
 ```
 
-### 寄生组合继承
+## 寄生组合继承
+
 ```javascript
 function Parent(name) {
   this.name = name;
