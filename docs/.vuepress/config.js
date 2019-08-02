@@ -51,7 +51,7 @@ module.exports = {
         ],
         sidebar: {
           '/zh/es/': genEsSidebar('起步'),
-          'zh/blog': genBlogSidebar('博客'),
+          '/zh/blog/': genBlogSidebar('博客'),
         }
 
       }
