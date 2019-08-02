@@ -1,7 +1,7 @@
 const { resolve } = require('path')
 
 module.exports = {
-  // base: '/node-lib/',
+  base: '/note-lib/',
   locales: {
     '/': {
       lang: 'en-US',
@@ -45,16 +45,13 @@ module.exports = {
             link: '/zh/es/'
           },
           {
-            text: '规范',
-            link: '/zh/dev-specification/'
-          },
-          {
             text: '博客',
             link: '/zh/blog/'
           }
         ],
         sidebar: {
-          '/zh/es/': genSidebarConfig('起步')
+          '/zh/es/': genEsSidebar('起步'),
+          'zh/blog': genBlogSidebar('博客'),
         }
 
       }
@@ -71,7 +68,7 @@ module.exports = {
   }
 }
 
-function genSidebarConfig(title) {
+function genEsSidebar(title) {
   return [
     {
       title,
@@ -85,6 +82,20 @@ function genSidebarConfig(title) {
         'DOM2',
         'event',
         'vedio-material'
+      ]
+    }
+  ]
+}
+
+function genBlogSidebar(title) {
+  return [
+    {
+      title,
+      collapsable: false,
+      children: [
+        '',
+        '进化的倒计时',
+        '项目总结'
       ]
     }
   ]

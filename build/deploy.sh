@@ -12,7 +12,7 @@ git config user.email '2087152746@qq.com'
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:wentiansky/note-lib.git master:gh-pages
-# git push -f https://github.com/wentiansky/note-lib.git
+# git push -f git@github.com:wentiansky/note-lib.git master:gh-pages
+git push -f https://github.com/wentiansky/note-lib.git master:gh-pages
 
 cd -
