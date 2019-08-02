@@ -14,7 +14,7 @@ module.exports = {
       description: '一个学习仓库'
     }
   },
-  serviceWorker: true,
+  serviceWorker: false,
   themeConfig: {
     // displayAllHeaders: true,
     sidebarDepth: 2,
