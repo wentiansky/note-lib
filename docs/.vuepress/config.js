@@ -14,6 +14,15 @@ module.exports = {
       description: '一个学习仓库'
     }
   },
+  head: [
+    [
+      'link',
+      { 
+        rel: 'icon',
+        href: '/favicon.ico'
+       }
+    ]
+  ],
   serviceWorker: false,
   themeConfig: {
     // displayAllHeaders: true,
