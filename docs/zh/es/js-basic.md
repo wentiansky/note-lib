@@ -136,3 +136,52 @@ Object.defineProperty(Person.prototype, 'constructor', {
   value: Person
 })
 ```
+
+## 防抖和节流
+
+* 防抖：触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件重复触发，则重新计算时间。
+
+```javascript
+function debounce(fn) {
+  let timer = null;
+  return function() {
+    // 在事件中的匿名函数中，this指向绑定事件的元素
+    // 在事件中的匿名函数中，arguments包含事件对象(event)
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      // 此处用箭头函数，使this指向绑定事件的元素，否则指向window
+      fn.apply(this, arguments);
+    }, 500);
+  };
+}
+
+function say() {
+  console.log('防抖成功');
+}
+
+let elm = document.querySelector('#elm');
+elm.addEventListener('input', debounce(say), false); // 防抖
+```
+
+* 节流：高频事件触发，在n秒内只会执行一次，节流会稀释函数的执行频率。
+
+```javascript
+function throttled(fn) {
+  let flag = true;
+  return function() {
+    if (!flag) return;
+    flag = false;
+    setTimeout(() => {
+      fn.apply(this, arguments);
+      flag = true;
+    }, 500);
+  }
+}
+
+function say(e) {
+  console.log('节流成功');
+  console.log(e.target.innerWidth);
+}
+
+window.addEventListener('resize', throttled(say), false);
+```
