@@ -90,6 +90,8 @@ function genEsSidebar(title) {
         'DOM1',
         'DOM2',
         'event',
+        'HTML5脚本编程',
+        'error-debug',
         'vedio-material'
       ]
     }
