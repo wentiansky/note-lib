@@ -91,6 +91,8 @@ function genEsSidebar(title) {
         'DOM2',
         'event',
         'HTML5脚本编程',
+        'JSON',
+        'Ajax',
         'error-debug',
         'vedio-material'
       ]
@@ -106,7 +108,10 @@ function genBlogSidebar(title) {
       children: [
         '',
         '进化的倒计时',
-        '项目总结'
+        '项目总结',
+        'JS',
+        'ie11请求兼容',
+        'vue-cli3兼容ie'
       ]
     }
   ]
