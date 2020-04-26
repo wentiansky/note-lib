@@ -13,7 +13,7 @@ function createXHR() {
       var versions = [
         'MSXML2.XMLHttp.6.0',
         'MSXML.XMLHttp.3.0',
-        'MSXML.XMLHttp'
+        'MSXML.XMLHttp',
       ]
 
       for (var i = 0; i < versions.length; i++) {
@@ -230,7 +230,163 @@ xhr.send(null)
 
 ```javascript
 var xhr = createXHR()
+
 xhr.open('get', 'example.php', true)
 xhr.overrideMimeType('text/xml')
 xhr.send(null)
+```
+
+## 6. 进度事件
+
+### 6.1 load 事件
+
+只要浏览器接收到服务器的响应，就会触发`load`事件
+
+```javascript
+var xhr = createXHR()
+
+xhr.onload = function() {
+  if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+    alert(xhr.responseText)
+  } else {
+    alert('Request was unsuccessful: ' + xhr.status)
+  }
+}
+xhr.open('get', 'example.php', true)
+xhr.send(null)
+```
+
+### 6.2 progress 事件
+
+- `lengthComputable`：表示进度信息是否可用（Boolean）
+- `position`：表示已接收的字节数
+- `totalSize`：表示根据`Content-Length`响应头部确定的预期字节数
+
+```javascript
+var xhr = createXHR()
+var divStatus = document.getElementById('status')
+
+xhr.onprogress = function(event) {
+  if (event.lengthComputable) {
+    divStatus.innerHTML =
+      'Received ' + event.position + ' of ' + event.totalSize + 'bytes'
+  }
+}
+xhr.open('get', 'example.php', true)
+xhr.send(null)
+```
+
+## 7. 跨域资源共享（CORS）
+
+> 默认情况下`XHR`对象只能访问与包含他的页面位于同一个域中的资源，来源于跨域安全策略。`CORS`（Cross-Origin-Resource Sharing，跨域资源共享），使用自定义的`HTTP`头部让浏览器与服务器进行沟通。
+
+如发送一个简单的`GET`或`POST`请求时，需要附加一个额外的`origin`头部，包含页面的源信息（协议、域名和端口），以便服务器根据这个头部信息来决定是否给予响应。
+
+```jsx
+// 浏览器的头部信息
+origin: http://www.example.com
+
+// 服务端的添加允许的响应头
+Access-Control-Allow-Origin: http://www.example.com
+```
+
+### 7.1 IE 对 CORS 的实现
+
+`IE8`引入了`XDR`（XDomainRequest）类型，与`XHR`类似，但能实现安全的跨域通信，有一下特点：
+
+- `cookie`不会随请求发送，也不会随响应返回
+- 只能设置请求头部信息中的`Content-type`字段
+- 不能访问响应头部信息
+- 只支持`GET`和`POST`请求
+  这些特点有效的缓解了`CSRF`（Cross-Site Request Forgery，跨站点请求伪造）和`XSS`（Cross-Site scripting，跨站点脚本）
+
+```javascript
+var xdr = new XDomainRequest()
+
+xdr.onload = function() {
+  // 只能访问到响应的原始文本，不能访问响应状态等其他信息
+  alert(xdr.responseText)
+}
+xdr.onerror = function() {
+  // 响应错误时触发，没有多余的信息
+  alert('An error occurred.')
+}
+
+// get请求
+xdr.open('get', 'example.php') // 没有第三个参数，只能是异步
+xdr.send(null)
+
+// post 请求
+xdr.open('post', 'example.php')
+xdr.contentType = 'application/x-www-form-urlencoded'
+```
+
+### 7.2 其他浏览器对 CORS 的实现
+
+其他浏览器对`CORS`提供了原生支持，在 open()方法中使用绝对 URL 即可，与 IE 的`XDR`不同的是，通过跨域的`XHR`可以访问`status`和`statusText`属性，而且还支持同步请求，但是也有一些限制：
+
+- 不能使用`setRequestHeader()`设置自定义头部
+- 不能发送和接受`cookie`
+- 调用`getAllResponseHeader()`总是会返回空字符串
+
+### 7.3 Preflighted Requests（预检请求）
+
+支持开发人员自定义头部、GET 或 POST 之外的方法，以及不同类型的主体内容，在使用以下高级选项，会发送一个 preflighted 请求，IE10 及以下版本不支持 preflight 请求。
+
+- `Origin`：与简单请求相同
+- `Access-Control-Request-method`：请求自身使用的方法
+- `Access-Control-Request-Headers`：自定义头部信息，多个头部以逗号分隔
+
+服务器通过在响应头中发送如下头部与浏览器进行沟通：
+
+- `Access-Control-Allow-Origin`：与简单的请求相同
+- `Access-Control-Allow-Methods`：允许的方法，多个方法以逗号隔开
+- `Access-Control-Allow-Headers`：允许的头部，多个头部以逗号隔开
+- `Access-Control-Max-Age`：应该讲这个`Preflight`请求缓存多长时间
+
+### 7.4 带凭据的请求
+
+默认情况系，跨域请求不提供凭据（cookie、HTTP 认证及客户端 SSL 证明等），设置`withCredentials`为 true 可以指定某个请求应该发送凭据，如果服务器接收带凭据的请求，会用下面的 HTTP 头部来响应：
+
+```jsx
+Access-control-Allow-Credentials: true
+```
+
+### 7.5 跨浏览器的 CORS
+
+```javascript
+function createCORSRequest(method, url) {
+  var xhr = createXHR()
+  if ('withCredentials' in xhr) {
+    // 支持XHR跨域
+    xhr.open(method, url, true)
+  } else if (typeof XDomainRequest != 'undefined') {
+    xhr = new XDomainRequest()
+    xhr.open(method, url)
+  } else {
+    xhr = null
+  }
+  return xhr
+}
+
+var request = createCORSRequest('get', 'example.php')
+if (request) {
+  request.onload = function() {
+    // 对request.responseText进行处理
+  }
+  request.send()
+}
+```
+
+### 7.6 其他跨域技术
+
+#### 7.6.1 图像 Ping
+使用`<img>`标签，一个网页可以从任何网页中加载图像，动态创建图像经常用于图像Ping，图像Ping是与服务器进行简单、单向的跨域通信的一种方式，请求的数据通过查询字符串形式发送，浏览器得不到任何具体的数据，但通过侦听`onload`和`onerror`事件，能知道响应是什么时候接收到的。
+```javascript
+var img = new Image()
+
+img.onload = img.onerror = function() {
+  alert('done!')
+}
+img.src = 'example.php?name="jax"'
 ```
