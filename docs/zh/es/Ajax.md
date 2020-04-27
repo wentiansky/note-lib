@@ -381,7 +381,9 @@ if (request) {
 ### 7.6 其他跨域技术
 
 #### 7.6.1 图像 Ping
-使用`<img>`标签，一个网页可以从任何网页中加载图像，动态创建图像经常用于图像Ping，图像Ping是与服务器进行简单、单向的跨域通信的一种方式，请求的数据通过查询字符串形式发送，浏览器得不到任何具体的数据，但通过侦听`onload`和`onerror`事件，能知道响应是什么时候接收到的。
+
+使用`<img>`标签，一个网页可以从任何网页中加载图像，动态创建图像经常用于图像 Ping，图像 Ping 是与服务器进行**简单、单向**的跨域通信的一种方式，请求的数据通过查询字符串形式发送，浏览器得不到任何具体的数据，但通过侦听`onload`和`onerror`事件，能知道响应是什么时候接收到的，常用来跟踪用户点击页面或动态广告曝光次数。
+
 ```javascript
 var img = new Image()
 
@@ -389,4 +391,87 @@ img.onload = img.onerror = function() {
   alert('done!')
 }
 img.src = 'example.php?name="jax"'
+```
+
+#### 7.6.2 JSONP
+
+> JSONP 是 JSON with padding 的简写，是包含在函数中的 JSON。由回调函数和数据两部分组成，回调函数的名字一般在请求中指定，数据就是传入回调函数中的 JSON 数据，如：
+
+```javascript
+function handleResponse(response) {
+  alert('result: ' + response.data)
+}
+var script = document.createElement('script')
+script.src = 'http://test.com/json/?callback=handleResponse'
+document.body.insertBefore(script, document.body.firstChild)
+```
+
+与图像 ping 相比的优势是能访问到服务端响应，缺点是其他域可能不安全，没有失败的回调函数。
+
+## 8. Comet 服务端推送
+
+> 实现方式：长轮询和流，长轮询是短轮询的翻版，等待发送响应。流在页面的整个生命周期内只使用一个 HTTP 连接，客户端实现流的方式如下：
+
+```javascript
+function createStreamingClient(url, progress, finished) {
+  var xhr = new XMLHttpRequest()
+  var received = 0
+
+  xhr.open('get', url, true)
+  xhr.onreadystatechange = function() {
+    var result
+
+    if (xhr.readyState == 3) {
+      result = xhr.responseText.subString(received)
+      received += result.length
+      progress(result)
+    } else if (xhr.readyState == 4) {
+      finished(xhr.responseText)
+    }
+  }
+  xhr.send(null)
+  return xhr
+}
+
+var client = createStreamingClient(
+  'example.php',
+  function(data) {
+    alert('Received: ' + data)
+  },
+  function(fsys) {
+    alert('done!')
+  }
+)
+```
+
+## 9. 服务器发送事件
+> SSE（Server-Sent Events）服务器发送事件。
+API有：
+- open：建立连接时触发
+- message：从服务器接收到新事件触发
+- error：无法建立连接时触发
+- close：关闭连接
+```javascript
+var source = new EventSource('myevents.php')
+
+source.onmessage = function(event) {
+  var data = event.data
+}
+```
+
+## 10. Web Sockets
+> 在持久连接上提供全双工、双向通信，建立一个http连接后，从`HTTP`协议升级成`Web Socket`协议，自定义的`ws://`协议传输数据小，适合移动端通信。
+```javascript
+var socket = new WebSocket('ws://www.example.com/server.php')
+
+// 发送数据
+socket.send('hello')
+
+// 获取服务端消息
+socket.onmessage = function(event) {
+  var data = event.data
+}
+
+// 关闭
+socket.close()
 ```
