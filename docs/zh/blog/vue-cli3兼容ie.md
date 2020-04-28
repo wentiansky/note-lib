@@ -53,7 +53,8 @@ module.exports = {
 
 ### 4.1 vuex-persist 包 es6+语法报错
 
-![vuex-persist语法报错](https://note.youdao.com/yws/res/966/WEBRESOURCE28aceb83013cef03bf1b09416c004237)
+<!-- ![vuex-persist语法报错](https://note.youdao.com/yws/res/966/WEBRESOURCE28aceb83013cef03bf1b09416c004237) -->
+![vuex-persist语法报错](https://github.com/wentiansky/note-lib/blob/master/docs/.vuepress/public/assets/imgs/blog/vuex-persist包语法错.png)
 
 解决方法：手动配置配置`babel-loader`编译`node_modules/vuex-persist`下面相关目录，例如：`resolve('node_modules/pinyin/lib')`
 
