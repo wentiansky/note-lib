@@ -53,19 +53,18 @@ module.exports = {
 
 ### 4.1 vuex-persist 包 es6+语法报错
 
-<!-- ![vuex-persist语法报错](https://note.youdao.com/yws/res/966/WEBRESOURCE28aceb83013cef03bf1b09416c004237) -->
-![vuex-persist语法报错](https://github.com/wentiansky/note-lib/blob/master/docs/.vuepress/public/assets/imgs/blog/vuex-persist包语法错.png)
+![vuex-persist语法报错](https://github.com/wentiansky/note-lib/raw/master/docs/.vuepress/public/assets/imgs/blog/vuex-persist包语法错.png)
 
 解决方法：手动配置配置`babel-loader`编译`node_modules/vuex-persist`下面相关目录，例如：`resolve('node_modules/pinyin/lib')`
 
 ### 4.2 pinyin 包 es6+语法报错
 
-![pinyin包语法错](https://note.youdao.com/yws/res/968/WEBRESOURCEabf890a1984441e0dd5b1f7536db303f)
+![pinyin包语法错](https://github.com/wentiansky/note-lib/raw/master/docs/.vuepress/public/assets/imgs/blog/pinyin包语法错.png)
 
 解决方法：手动配置配置`babel-loader`编译`node_modules/pinyin`下面相关目录，例如：`resolve('node_modules/pinyin/lib')`
 
 ### 4.3 逆向查找`?<=`正则表达式不支持
 
-![`?<=`逆向查找不支持](https://note.youdao.com/yws/res/970/WEBRESOURCE5ddddcbcd9a935a7e3f7872c90494a8b)
+![`?<=`逆向查找不支持](https://github.com/wentiansky/note-lib/raw/master/docs/.vuepress/public/assets/imgs/blog/正则表达式错误.png)
 
 解决方法：用其他方法替代`?<=`逆向查找正则表达式
