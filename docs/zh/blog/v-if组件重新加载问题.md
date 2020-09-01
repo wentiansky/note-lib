@@ -58,8 +58,18 @@ export default {
 ### 2.3 触发 DistributionAddTool 组件重新渲染原因
 
 ```vue
-watch: { $route(to, from) { // 显示申请单组件入口 if (this.isIncluedeEntnum &&
-this.orderPasList.length > 0) { this.isShowApplyEnter = true; } } }
+<script>
+export default {
+  watch: {
+    $route(to, from) {
+      // 显示申请单组件入口
+      if (this.isIncluedeEntnum && this.orderPasList.length > 0) {
+        this.isShowApplyEnter = true
+      }
+    },
+  },
+}
+</script>
 ```
 
 ## 3. 本地创建 demo 复现
@@ -210,11 +220,11 @@ externals: {
 
 ![vue-issue](https://github.com/wentiansky/note-lib/raw/master/docs/.vuepress/public/assets/imgs/blog/vue-issue.png)
 
-找到相关问题，组件前后有`v-if`，在页面`mounted`中加入`setTimeout`，2s后将v-if的控制变量置为true，中间的组件会重新加载，与项目的问题类似，项目组件前面有一个`v-if`，后面有一个`<router-view />`，从差标判断页面跳转到申请单页面相当于`v-if`切换，同时在订单页面的`watch`中监听`$route`，将v-if的控制变量置为true，与issue场景类似
+找到相关问题，组件前后有`v-if`，在页面`mounted`中加入`setTimeout`，2s 后将 v-if 的控制变量置为 true，中间的组件会重新加载，与项目的问题类似，项目组件前面有一个`v-if`，后面有一个`<router-view />`，从差标判断页面跳转到申请单页面相当于`v-if`切换，同时在订单页面的`watch`中监听`$route`，将 v-if 的控制变量置为 true，与 issue 场景类似
 
 ## 6. 总结
 
 - 项目遇到问题，首页将本地和正式做对比，找出差异，如本文章`DistributionAddTool`组件多发了两个请求；
-- 抽象问题，本地新建demo复现，如果本地不能复现，在项目里面新建demo复现；
+- 抽象问题，本地新建 demo 复现，如果本地不能复现，在项目里面新建 demo 复现；
 - 注意框架或组件版本是否一致；
 - 查看框架`issue`和版本更新日志，找到问题根本原因；
