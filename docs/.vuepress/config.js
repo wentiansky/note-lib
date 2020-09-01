@@ -109,9 +109,11 @@ function genBlogSidebar(title) {
         '',
         '进化的倒计时',
         '项目总结',
-        'JS',
         'ie11请求兼容',
-        'vue-cli3兼容ie'
+        'JS',
+        'v-if组件重新加载问题',
+        'vue-cli3兼容ie',
+        'vue项目-权限管理组件开发总结'
       ]
     }
   ]
